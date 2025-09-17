@@ -1,0 +1,9 @@
+{
+  "files": [],
+  "references": [
+    { "path": "packages/shared" },
+    { "path": "apps/gateway" },
+    { "path": "apps/auth" },
+    { "path": "apps/user" }
+  ]
+}
