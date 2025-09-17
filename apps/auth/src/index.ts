@@ -1,10 +1,12 @@
 import Fastify from 'fastify';
 import fastifyJwt from '@fastify/jwt';
+import cors from '@fastify/cors';
 import { MongoClient } from 'mongodb';
 import bcrypt from 'bcryptjs';
 import { z } from 'zod';
 
 const app = Fastify({ logger: true });
+await app.register(cors, { origin: true, credentials: true });
 await app.register(fastifyJwt, { secret: process.env.JWT_SECRET || 'dev-secret' });
 
 const mongo = new MongoClient(process.env.MONGO_URL || 'mongodb://localhost:27017');

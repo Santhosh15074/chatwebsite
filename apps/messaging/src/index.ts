@@ -1,8 +1,10 @@
 import Fastify from 'fastify';
+import cors from '@fastify/cors';
 import { MongoClient, ObjectId } from 'mongodb';
 import { z } from 'zod';
 
 const app = Fastify({ logger: true });
+await app.register(cors, { origin: true, credentials: true });
 
 const mongo = new MongoClient(process.env.MONGO_URL || 'mongodb://localhost:27017');
 await mongo.connect();
